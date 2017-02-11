@@ -1,0 +1,25 @@
+window{
+	background:#444;
+}
+
+label{
+	color: #eee;
+}
+
+button{
+	background:#333;
+	color: #eee;
+}
+button.submit:hover,button:hover{
+	background:#23eea2;
+	color: #fff;
+}
+button.submit{
+	background:#4772AA;
+}
+
+image{
+	background:rgba(255,255,255,0.8);
+	box-shadow:0px 0px 3px #333;
+	border-radius:10px;
+}
