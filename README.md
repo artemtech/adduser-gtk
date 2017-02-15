@@ -7,7 +7,12 @@
 compile dengan library gtk+3.0 dan posix dalam folder gui
 
 ```bash
-valac --pkg gtk+3.0 --pkg posix inputuser.vala
+valac --pkg gtk+-3.0 --pkg posix input_user.vala
+```
+
+Jalankan hasil kompilasi dengan hak akses root 
+```bash
+sudo ./input_user
 ```
 
 ## Daftar Capaian
