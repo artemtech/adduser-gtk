@@ -51,11 +51,10 @@ public class AddUserApp : GLib.Object{
   			hasilAddUser = do_addUser(userEntry.get_text(), pswdEntry.get_text());
   			if(hasilAddUser == 0){
   				statusPerintah.set_text("Berhasil menambahkan user : %s".printf(userEntry.get_text()));
+  				do_done();
   			}else{
   				statusPerintah.set_text("Terjadi kesalahan, exit status: %d".printf(hasilAddUser));
   			}
-  			
-  			
   		});
   		
   	}
@@ -85,7 +84,7 @@ public class AddUserApp : GLib.Object{
  		string command = "/usr/sbin/adduser %s".printf(argumen);
 		try{
   		Process.spawn_command_line_sync(command,out yangDieksekusi, out pesanError, out statusPerintah);
-  		//output: hasil echo nya harusnya
+  	//output: hasil echo nya harusnya
 			GLib.stdout.printf("stdout: \n");
 		// output
 			GLib.stdout.puts(command);
@@ -127,7 +126,7 @@ public class AddUserApp : GLib.Object{
   }
   /* Exit whenever user click FINISH and status of User Creation is success */
   public void do_done(){
-  	//TODO
+  	Gtk.main_quit();
   }
   
   
