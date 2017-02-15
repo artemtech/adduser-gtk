@@ -1,4 +1,9 @@
 # adduser-gtk
+
+## Daftar Dependensi
+- libgtk-3-dev
+- valac
+
 compile dengan library gtk+3.0 dan posix dalam folder gui
 
 ```bash
