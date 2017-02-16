@@ -137,7 +137,7 @@ public class AddUserApp : GLib.Object{
   	//delete delete entry in adduser.conf for user extra group setup
   	Posix.system("sed -i '$d' /etc/adduser.conf");
   	// logout xsession
-  	Process.spawn_command_line_sync("gnome-session-quit --logout --noprompt");  	
+  	Process.spawn_command_line_sync("gnome-session-quit --logout --no-prompt");  	
   	Gtk.main_quit();
   }
   
