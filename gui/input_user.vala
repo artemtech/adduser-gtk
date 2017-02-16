@@ -76,11 +76,12 @@ public class AddUserApp : GLib.Object{
   
   /* Add user spawn */
   private int do_addUser(string user_name, string password){
+  	do_ubahParameterGroup();
   	string yangDieksekusi;
 		string pesanError;
 		int statusPerintah;
 		int setPassword;
- 		string argumen = @"--quiet --disabled-password --shell /bin/bash --home /home/$user_name --gecos "+ Shell.quote(@"$user_name") + @" $user_name";
+ 		string argumen = @"--quiet --disabled-password --shell /bin/bash --home /home/$user_name --gecos "+ Shell.quote(@"$user_name") + @"--add_extra_groups $user_name";
  		string command = "/usr/sbin/adduser %s".printf(argumen);
 		try{
   		Process.spawn_command_line_sync(command,out yangDieksekusi, out pesanError, out statusPerintah);
@@ -119,13 +120,24 @@ public class AddUserApp : GLib.Object{
   	}
   }
   
+  /* Tambah parameter di adduser.conf */
+  private void do_ubahParameterGroup(){
+  	string grup = """EXTRA_GROUPS = "cdrom floppy sudo audio dip video plugdev netdev" """;
+  	Posix.system(@"echo $grup >> /etc/adduser.conf");
+  }
+  
   /* Set hostname */
   private void do_setHostname(string hostname){
   	//TODO
   	GLib.stdout.printf("hostname");
   }
+  
   /* Exit whenever user click FINISH and status of User Creation is success */
   public void do_done(){
+  	//delete delete entry in adduser.conf for user extra group setup
+  	Posix.system("sed -i '$d' /etc/adduser.conf");
+  	// logout xsession
+  	Process.spawn_command_line_sync("gnome-session-quit --logout --noprompt");  	
   	Gtk.main_quit();
   }
   
