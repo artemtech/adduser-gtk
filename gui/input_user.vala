@@ -40,7 +40,7 @@ public class AddUserApp : GLib.Object{
   		var pswdEntry = builder.get_object("pswdName") as Entry;
   		var preview = builder.get_object("previewUser") as Button;
   		var submit = builder.get_object("submitUser") as Button;
-  		var statusPerintah = builder.get_object("statusPerintah") as Label;
+//  		var statusPerintah = builder.get_object("statusPerintah") as Label;
   		previewLabel.set_text("");
   		/* whenever preview button has "clicked" signal, its connect to updatePreview() */
   		preview.clicked.connect(()=>{
@@ -50,11 +50,12 @@ public class AddUserApp : GLib.Object{
   		submit.clicked.connect(()=>{
   			hasilAddUser = do_addUser(userEntry.get_text(), pswdEntry.get_text());
   			if(hasilAddUser == 0){
-  				statusPerintah.set_text("Berhasil menambahkan user : %s".printf(userEntry.get_text()));
+//  				statusPerintah.set_text("Berhasil menambahkan user : %s".printf(userEntry.get_text()));
   				do_done();
-  			}else{
-  				statusPerintah.set_text("Terjadi kesalahan, exit status: %d".printf(hasilAddUser));
   			}
+//  			else{
+//  				statusPerintah.set_text("Terjadi kesalahan, exit status: %d".printf(hasilAddUser));
+//  			}
   		});
   		
   	}
@@ -81,7 +82,7 @@ public class AddUserApp : GLib.Object{
 		string pesanError;
 		int statusPerintah;
 		int setPassword;
- 		string argumen = @"--quiet --disabled-password --shell /bin/bash --home /home/$user_name --gecos "+ Shell.quote(@"$user_name") + @"--add_extra_groups $user_name";
+ 		string argumen = @"--quiet --disabled-password --shell /bin/bash --home /home/$user_name --gecos "+ Shell.quote(@"$user_name") + @" --add_extra_groups $user_name";
  		string command = "/usr/sbin/adduser %s".printf(argumen);
 		try{
   		Process.spawn_command_line_sync(command,out yangDieksekusi, out pesanError, out statusPerintah);
