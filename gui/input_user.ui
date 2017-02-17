@@ -4,6 +4,8 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="window">
     <property name="can_focus">True</property>
+    <property name="resizable">False</property>
+    <property name="deletable">False</property>
     <child>
       <object class="GtkFixed">
         <property name="visible">True</property>
@@ -22,11 +24,11 @@
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
-                <property name="label" translatable="yes">Computer Name
+                <property name="label" translatable="yes">Nama Komputer
 
-Username
+Nama Pengguna
 
-Password</property>
+Sandi</property>
                 <property name="justify">right</property>
               </object>
               <packing>
@@ -137,7 +139,7 @@ Password</property>
         </child>
         <child>
           <object class="GtkButton" id="submitUser">
-            <property name="label" translatable="yes">Finish</property>
+            <property name="label" translatable="yes">Selesai</property>
             <property name="width_request">100</property>
             <property name="height_request">50</property>
             <property name="visible">True</property>
@@ -155,7 +157,7 @@ Password</property>
         </child>
         <child>
           <object class="GtkButton" id="previewUser">
-            <property name="label" translatable="yes">Preview</property>
+            <property name="label" translatable="yes">Tinjau</property>
             <property name="width_request">100</property>
             <property name="height_request">50</property>
             <property name="visible">True</property>
@@ -169,6 +171,33 @@ Password</property>
           <packing>
             <property name="x">800</property>
             <property name="y">650</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">269</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Selamat Datang di Sistem BlankOn Baru Anda!
+</property>
+          </object>
+          <packing>
+            <property name="x">575</property>
+            <property name="y">182</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">428</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Silakan Lengkapi Informasi Berikut untuk Lanjut  Menggunakan BlankOn.</property>
+          </object>
+          <packing>
+            <property name="x">497</property>
+            <property name="y">197</property>
           </packing>
         </child>
       </object>
