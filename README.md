@@ -1,21 +1,27 @@
-# adduser-gtk
+# Adduser-gtk
 
 ## Daftar Dependensi
 - libgtk-3-dev
 - valac
-pasang terlebih dahulu paket diatas dengan perintah:
+- gnome-common
+
+Pasang terlebih dahulu paket diatas dengan perintah:
 ```bash
-sudo apt install libgtk-3-dev valac
+sudo apt install libgtk-3-dev valac gnome-common
 ```
-lalu compile dengan library gtk+3.0 dan posix dalam folder gui
+
+## Build Binary
+Build and running
 
 ```bash
-(gui)$ valac --pkg gtk+-3.0 --pkg posix input_user.vala
+$ ./autogen.sh
+$ make
+$ sudo make install
 ```
 
 Jalankan hasil kompilasi dengan hak akses root 
 ```bash
-(gui)$ sudo ./input_user
+$ sudo addusergtk
 ```
 
 ## Daftar Capaian
