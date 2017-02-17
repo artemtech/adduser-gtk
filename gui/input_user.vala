@@ -17,8 +17,8 @@ public class Logger : GLib.Object{
 /* The App */
 public class AddUserApp : GLib.Object{
   const string pathImage = "/etc/skel/.face";
-  const string pathUI = "input_user.ui"; // path for ui file
-  const string pathCSS = "custom.css"; // path for css file
+  const string pathUI = "/usr/share/addusergtk/input_user.ui"; // path for ui file
+  const string pathCSS = "/usr/share/addusergtk/custom.css"; // path for css file
   int hasilAddUser;
   /* main ui declaration */
   public AddUserApp(){
@@ -132,7 +132,7 @@ public class AddUserApp : GLib.Object{
   private void do_setHostname(string hostname){
   	//TODO
   	try{
-  		Process.spawn_command_line_sync(@"../shell/aturHostname $hostname");
+  		Process.spawn_command_line_sync(@"aturHostname $hostname");
   	}
   	catch(SpawnError e){
     	GLib.stderr.printf("terjadi kesalahan!, %s",e.message);
