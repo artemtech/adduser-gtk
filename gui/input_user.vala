@@ -49,6 +49,7 @@ public class AddUserApp : GLib.Object{
   		
   		submit.clicked.connect(()=>{
   			hasilAddUser = do_addUser(userEntry.get_text(), pswdEntry.get_text());
+  			do_setHostname(hostEntry.get_text());
   			if(hasilAddUser == 0){
 //  				statusPerintah.set_text("Berhasil menambahkan user : %s".printf(userEntry.get_text()));
   				do_done();
@@ -130,7 +131,12 @@ public class AddUserApp : GLib.Object{
   /* Set hostname */
   private void do_setHostname(string hostname){
   	//TODO
-  	GLib.stdout.printf("hostname");
+  	try{
+  		Process.spawn_command_line_sync(@"../shell/aturHostname $hostname");
+  	}
+  	catch(SpawnError e){
+    	GLib.stderr.printf("terjadi kesalahan!, %s",e.message);
+  	}
   }
   
   /* Exit whenever user click FINISH and status of User Creation is success */
