@@ -1,29 +1,11 @@
-NULL = 
+NULL =
 
-AM_CPPFLAGS = \
-	$(addusergtk_CFLAGS) \
-	-include config.h \
-	-DLOCALEDIR=\""$(localedir)"\" \
-	-DPKGDATADIR=\""$(pkgdatadir)"\" \
+SUBDIRS = \
+	gui \
+	shell \
 	$(NULL)
 
-bin_PROGRAMS = addusergtk
-
-addusergtk_SOURCES = input_user.vala \
-	$(NULL)
-
-addusergtk_VALAFLAGS = \
-    --vapidir ../vapi \
-		--pkg config \
-    $(VALA_PACKAGES) \
-    $(NULL)
-
-addusergtk_LDADD = \
-	$(addusergtk_LIBS) \
-	$(NULL)
-
-EXTRA_DIST = \
-	$(NULL)
-
-DISTCLEANFILES = \
+dist_pkgdata_DATA = \
+	gui/custom.css \
+	gui/input_user.ui \
 	$(NULL)
