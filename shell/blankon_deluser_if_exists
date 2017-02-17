@@ -1,0 +1,17 @@
+#!/bin/bash
+
+##Check if the user exists using getent command
+user_exists=$(getent passwd $1)
+
+##If the user doesn't exist, we need not perform the backup. 
+if [ -z "$user_exists" ] 
+then
+  echo "User $1 does not exist"
+else
+	doers=$(egrep -c "$1" /etc/sudoers)
+ 	userdel -rf "$1"
+ 	if [ $doers -ne 0 ]
+ 	then 
+ 		sed ^"$1" /#/i
+ 	fi
+fi

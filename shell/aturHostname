@@ -22,6 +22,15 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 @@EOF
 
+	# Disable autologin
+	sed -i -r -e "s/autologin-/#autologin-/g" /usr/share/lightdm/lightdm.conf.d/40-lightdm-webkit-greeter.conf
+
+  # Remove user blankon
+  blankon_deluser_if_exists blankon
+
+  # Reboot system to use new user
+	init 6
+
 	else
 		echo "Err,, HOST_NAME Tidak Boleh Kosong!"
 		exit 0
