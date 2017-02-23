@@ -4,7 +4,6 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="window">
     <property name="can_focus">True</property>
-    <property name="resizable">False</property>
     <property name="deletable">False</property>
     <child>
       <object class="GtkFixed">
@@ -110,7 +109,7 @@ Sandi</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="stock">gtk-missing-image</property>
+                <property name="pixbuf">/etc/skel/.face</property>
               </object>
               <packing>
                 <property name="expand">True</property>
