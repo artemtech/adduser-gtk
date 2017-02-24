@@ -1,6 +1,6 @@
 bin_SCRIPTS = \
 	aturHostname \
-	tambahUser.sh \
+	tambahUser \
 	blankon_deluser_if_exists \
 	$(null)
 

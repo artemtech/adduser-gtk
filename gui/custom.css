@@ -23,3 +23,8 @@ image{
 	box-shadow:0px 0px 3px #333;
 	border-radius:10px;
 }
+image.logo{
+	background:rgba(33,33,33,0.0);
+	box-shadow:0px 0px 0px #444;
+	border-radius:0px;
+}

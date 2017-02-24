@@ -205,7 +205,10 @@ Sandi</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">blankon.png</property>
+            <property name="pixbuf">blankon-2.png</property>
+            <style>
+            	<class name="logo"/>
+            </style>
           </object>
           <packing>
             <property name="x">598</property>

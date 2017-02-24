@@ -2,21 +2,8 @@ using GLib;
 using Posix;
 using Gtk;
 
-
-/* Log for every process */
-public class Logger : GLib.Object{
-	public Logger(){
-		//TODO constructor of Logger
-	}
-	public void writeLog(string string){
-		//TODO write result of command to log file
-	}
-}
-/* End Log declaration*/
-
 /* The App */
 public class AddUserApp : GLib.Object{
-  const string pathImage = "/etc/skel/.face";
   const string pathUI = "/usr/share/addusergtk/input_user.ui"; // path for ui file
   const string pathCSS = "/usr/share/addusergtk/custom.css"; // path for css file
   int hasilAddUser;
